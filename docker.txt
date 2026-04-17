@@ -1,0 +1,66 @@
+---------- Docker Image ----------
+
+é um pacote pronto com tudo dentro (não roda nada ainda)
+exemplo:
+
+- Python instalado
+- libs (FastAPI, SQLAlchemy…)
+- código
+- comandos pra rodar
+
+criar Docker Image baseada no seu Dockerfile (arquivo na pasta do projeto)
+docker build -t NOME-DA-DOCKER-IMAGE .
+
+
+
+---------- Container ----------
+
+- processo isolado rodando uma image (executando o pacote)
+
+criar e executar um container a partir da sua Docker Image
+docker run -p 8000:8000 NOME-DA-DOCKER-IMAGE
+
+
+
+---------- Docker commands ----------
+
+- testar instalação do Docker
+docker run hello-world
+
+
+- reseta tudo do Docker na sua máquina (agressivo)
+system prune -a --volumes
+
+
+- mostrar containers rodando
+docker ps
+
+
+- mostrar histórico
+docker ps -a
+
+
+- "delisga" o projeto (com -v ao final apaga tudo no banco inclusive tabelas)
+docker compose down
+
+
+- instalar e baixar o necessário (requirements) e subir o programa (se já tiver tudo baixado pode tirar o --build e rodar)
+docker compose up --build      
+
+
+- entrar no container a partir do nome dado a ele
+docker exec -it NOMEDOCONTAINER bash
+vai aparecer algo assim:
+root@f3506a809b0b:/app# (roda o comando necessário aqui na frente)
+
+
+
+---------- MUDANÇAS DOCKER ----------
+
+- se teve mudança no código, atulizar docker (se foi adicionado requirement novo: docker compose up --build)
+docker compose restart api
+
+
+- se teve mudança no db
+docker exec -it NOMEDOCONTAINER bash
+alembic upgrade head (ir pra versão atual do alembic no container)
