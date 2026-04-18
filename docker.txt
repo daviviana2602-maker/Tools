@@ -54,6 +54,10 @@ vai aparecer algo assim:
 root@f3506a809b0b:/app# (roda o comando necessário aqui na frente)
 
 
+- monitorar em tempo real o que está acontecendo nos containers (API + DB + outros serviços)
+docker compose logs -f 
+
+
 
 ---------- MUDANÇAS DOCKER ----------
 
