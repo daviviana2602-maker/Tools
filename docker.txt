@@ -61,7 +61,7 @@ docker compose logs -f
 
 ---------- MUDANÇAS DOCKER ----------
 
-- se teve mudança no código, atulizar docker (se foi adicionado requirement novo: docker compose up --build)
+- se teve mudança no código, atualizar docker (se foi adicionado requirement novo: docker compose up --build)
 docker compose restart api
 
 
